@@ -140,3 +140,24 @@ def information_fans(uid):
     except:
         return 2
         #print("information_fans error")
+#积分抽奖
+def Lottery(cookie:str):
+    url = "http://my.4399.com/jifen/lottery-draw?callback=jQuery17203331212748551664_{0}&callback=LotteryDraw.getPrize&_={0}".format(int(time.time()*1000))
+    #print(url)
+    try:
+        sign_headers={
+        'Accept':'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01',
+        'Accept-Encoding':'gzip, deflate',
+        'Accept-Language':'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+        'Connection':'keep-alive',
+        'Cookie':cookie,
+        'Host':'my.4399.com',
+        'Referer':'http://my.4399.com/jifen/activity-i-31e3d0ed909fd9fe8ede6601e0f816e5-f-1649066526',
+        'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36',
+        'X-Requested-With':'XMLHttpRequest'
+        }
+        #requests.get(url="http://my.4399.com/jifen/activity-invite-code-31e3d0ed909fd9fe8ede6601e0f816e5-fid-1649066526",headers=sign_headers)
+        rsp = requests.get(url,headers=sign_headers,timeout=2)
+        return (json.loads(rsp.text[21:-2])['result']['res'].get("res"))
+    except:
+        return "error"
