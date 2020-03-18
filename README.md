@@ -14,7 +14,8 @@
 - requests
 - lxml
 <br>
-## **已存在于发布在第三方平台上的教程**
+## **已存在于发布在第三方平台上的教程**  
+
 - [4399登录详解](https://www.coolapk.com/feed/13068295?shareKey=YWFjNWViNjYxYTRhNWQ5NTYxNmE~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [利用cookie爬取4399单个群组的用户数据](https://www.coolapk.com/feed/13102437?shareKey=MzA5Y2ZmNmI3YTc5NWQ5NTY2MmY~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [爬取4399全站用户](https://www.coolapk.com/feed/13180495?shareKey=ZGFmODg4ZWIwM2E5NWQ5NTY2NzQ~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
@@ -50,4 +51,3 @@
 ⭐⭐⭐
 未来会以md教程的方式实现4399群组的全站爬取
 ⭐⭐⭐
-
