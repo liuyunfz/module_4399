@@ -2,7 +2,6 @@
 import requests,json,time
 from lxml import etree
 from urllib import parse
-
 #判断登录状态
 def __judge_sign_data(data):
     selector = etree.HTML(data)
@@ -17,13 +16,13 @@ def __judge_sign_data(data):
         #print("需要验证码")
         return {"id":1,"msg":"需要验证码"}
 #登录账号，返回uid与cookie
-def sign_in(username,password,captcha=""):
-    data=r"loginFrom=uframe&postLoginHandler=default&layoutSelfAdapting=true&externalLogin=qq&displayMode=undefined&layout=vertical&appId=my&gameId=&css=%2F%2Fs1.img4399.com%2Fbase%2Fcss%2Fptlogin.css%3F431c76e&redirectUrl=&sessionId=captchaReqddf4cf8217f50404217&mainDivId=popup_login_div&includeFcmInfo=false&userNameLabel=4399%E7%94%A8%E6%88%B7%E5%90%8D&userNameTip=%E8%AF%B7%E8%BE%93%E5%85%A54399%E7%94%A8%E6%88%B7%E5%90%8D&welcomeTip=%E6%AC%A2%E8%BF%8E%E5%9B%9E%E5%88%B04399&username={0}&password={1}&inputCaptcha={2}".format(username,password,captcha)
+def sign_in(usernames,password,captcha=""):
+    data=r"loginFrom=uframe&postLoginHandler=default&layoutSelfAdapting=true&externalLogin=qq&displayMode=undefined&layout=vertical&appId=my&gameId=&css=%2F%2Fs1.img4399.com%2Fbase%2Fcss%2Fptlogin.css%3F431c76e&redirectUrl=&sessionId=captchaReqddf4cf8217f50404217&mainDivId=popup_login_div&includeFcmInfo=false&userNameLabel=4399%E7%94%A8%E6%88%B7%E5%90%8D&userNameTip=%E8%AF%B7%E8%BE%93%E5%85%A54399%E7%94%A8%E6%88%B7%E5%90%8D&welcomeTip=%E6%AC%A2%E8%BF%8E%E5%9B%9E%E5%88%B04399&username={0}&password={1}&inputCaptcha={2}".format(usernames,password,captcha)
     try:
         rsp = requests.post("http://ptlogin.4399.com/ptlogin/login.do?v=1",data=data,headers={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36","Host": "ptlogin.4399.com","Accept-Encoding": "gzip, deflate","Referer":"http://ptlogin.4399.com/ptlogin/loginFrame.do?postLoginHandler=default&redirectUrl=&displayMode=popup&css=&appId=www_home&gameId=&username=liuyunfz&externalLogin=qq&password=&mainDivId=popup_login_div&autoLogin=false&includeFcmInfo=false&qrLogin=true&v=1564145136161","Connection":"keep-alive","Cache-Control":"max-age=0","Origin":"http://ptlogin.4399.com","Upgrade-Insecure-Requests":"1","Content-Type":"application/x-www-form-urlencoded","Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3","Accept-Language":"zh-CN,zh;q=0.9","Cookie":r"UM_distinctid=16be1237f3d330-0026f1ba77007-e343166-1fa400-16be1237f3e8d7; _gprp_c=\"\"; Qnick=; _4399tongji_vid=156311428638372; _4399stats_vid=15631142873775485; Hm_lvt_334aca66d28b3b338a76075366b2b9e8=1562850329,1563114258,1563190247; ptusertype=my.4399_login; Puser=liuyunfz; Xauth=80b197113153cacc4d59b638f294d8a2; Pnick=%E9%A5%B0%E9%9D%9E; Uauth=4399\|1\|2019718\|my.#my.my\|1563421044972\|fd0b9e06776a854c6a80194081f5ea00; home4399=yes; USESSIONID=ec2acf31-7106-4f84-a85e-32a89421c6dd"},timeout=3)
         status = __judge_sign_data(rsp.text)
         if status["id"] == 0:
-            global cookieStr,username,userid
+            global username,cookieStr,userid
             cookieStr = ''        
             for item in rsp.cookies:
                 cookieStr = cookieStr + item.name + '=' + item.value + ';'

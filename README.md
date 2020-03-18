@@ -24,7 +24,7 @@
 	方法名:sign_in  
 |需要参数|参数类型|说明                  |
 |:- |:- |:-|
-|username  |string |登录账户的用户名   |
+|usernames  |string |登录账户的用户名   |
 |password  |string | 登录账户的密码    |
 |captcha   |string |验证码，可空       |
   
