@@ -13,8 +13,7 @@
 ## **第三方Python库**
 - requests
 - lxml
-<br>
-## **已存在于发布在第三方平台上的教程**  
+## **已发布在第三方平台上的教程**    
 
 - [4399登录详解](https://www.coolapk.com/feed/13068295?shareKey=YWFjNWViNjYxYTRhNWQ5NTYxNmE~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [利用cookie爬取4399单个群组的用户数据](https://www.coolapk.com/feed/13102437?shareKey=MzA5Y2ZmNmI3YTc5NWQ5NTY2MmY~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
@@ -23,11 +22,11 @@
 ## **功能解析**
 ### 1. 4399登录
 方法名:sign_in  
-> |需要参数|参数类型|说明                              |
-|:-----   |:------|:-----------------------------   |
-|username   |string    |登录账户的用户名   |
-|password  |string | 登录账户的密码                      |
-|captcha |string |验证码，可空                         |
+|需要参数|参数类型|说明 |
+|:- |:- |:-|
+|username  |string |登录账户的用户名   |
+|password  |string | 登录账户的密码    |
+|captcha   |string |验证码，可空       |
   
 返回数据（type:json）  
 > |key|说明                              |
