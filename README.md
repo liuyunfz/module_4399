@@ -21,7 +21,7 @@
 - [4399HASH实战破解](http://blog.6yfz.cn/%E5%AE%9E%E6%88%984399%E7%A0%B4%E8%A7%A3HASH%E9%AA%8C%E8%AF%81.html)   <br>
 ## **功能解析**
 ### 4399登录
-方法名:sign_in  
+	方法名:sign_in  
 |需要参数|参数类型|说明                  |
 |:- |:- |:-|
 |username  |string |登录账户的用户名   |
@@ -36,17 +36,17 @@
 |userid|用户的id，仅在登录成功时返回                         |
 |username|用户的论坛名，仅在登录成功时返回                         |
 |cookie|账号登录cookie，仅在登录成功时返回                         |  
-**[⬆ Back to Index](#index)** 
+**[⬆ Back to Index](#已有功能)** 
 ### 4399群组首页签到
-方法名:daily_sign  
+	方法名:daily_sign  
 |需要参数|参数类型|说明                              |
 |:-  |:-|:-   |
 |cookie   |string    |需要签到用户的账户cookie，可通过登录函数返回   |
   
 返回数据（type:json）  
 返回的为官方json，请自行尝试分析。  
-**[⬆ Back to Index](#index)**
-### 3. 剩余功能，下次添加
+**[⬆ Back to Index](#已有功能)**
+###  剩余功能，下次添加
 ## **展望**
 ⭐⭐⭐
 未来会以md教程的方式实现4399群组的全站爬取
