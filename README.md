@@ -35,7 +35,7 @@
 |msg  | 登录的具体状态描述                     |
 |userid|用户的id，仅在登录成功时返回                         |
 |username|用户的论坛名，仅在登录成功时返回                         |
-|cookie|账号登录cookie，仅在登录成功时返回                         |  
+|cookie|账号登录cookie，仅在登录成功时返回                        |   
 **[⬆ Back to Index](#已有功能)** 
 ### 4399群组首页签到
 	方法名:daily_sign  
