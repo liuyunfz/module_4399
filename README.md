@@ -27,8 +27,8 @@
 |usernames  |string |登录账户的用户名   |
 |password  |string | 登录账户的密码    |
 |captcha   |string |验证码，可空       |
-  
-返回数据（type:json）  
+
+	返回数据（type:json）   
 |key|说明                              |
 |:-  |:-   |
 |id  |登录状态返回，0-登录成功  ；1-需要验证码  ；2-其他错误，通过msg返回具体内容   |
@@ -36,17 +36,41 @@
 |userid|用户的id，仅在登录成功时返回                         |
 |username|用户的论坛名，仅在登录成功时返回                         |
 |cookie|账号登录cookie，仅在登录成功时返回                        |   
-**[⬆ Back to Index](#已有功能)** 
+
+**[⬆ Back to Index](#已有功能)**
 ### 4399群组首页签到
 	方法名:daily_sign  
 |需要参数|参数类型|说明                              |
 |:-  |:-|:-   |
 |cookie   |string    |需要签到用户的账户cookie，可通过登录函数返回   |
-  
-返回数据（type:json）  
+
+	返回数据（type:json）  
 返回的为官方json，请自行尝试分析。  
 **[⬆ Back to Index](#已有功能)**
-###  剩余功能，下次添加
+###  获取群组等级信息
+	方法名：information_grade  
+|需要参数|参数类型|说明                              |
+|:-  |:-|:-   |
+|cookie   |string    |需要获取等级信息的用户cookie，可通过登录函数返回   |  
+
+	返回数据（type:json）  
+返回的为官方json，请自行尝试分析。
+### 获取粉丝与关注信息
+	方法名：information_fans
+|需要参数|参数类型|说明                              |
+|:-  |:-|:-   |
+|uid   |string    |需要获取相关信息的用户UID，此API无需cookie，但部分用户会出现NONE问题   |
+
+	返回数据（type:json）   
+|key|说明                              |
+|:-  |:-   |
+|id  |查询状态返回，0-查询成功  ；1-其他未知错误，通过result返回具体错误信息  |
+|followed  | 被查询用户的粉丝数                     |
+|num_follow| 被查询用户的关注数                        |
+|num_feed|被查询用户的动态数                         |
+|avator|被查询用户的头像地址（注意头像地址需要在登录状态下才可访问，否则会出现403错误）    |  
+|result|仅在出错时返回result，且出错时以上key除id外全部不返回|
+
 ## **展望**
 ⭐⭐⭐
 未来会以md教程的方式实现4399群组的全站爬取
