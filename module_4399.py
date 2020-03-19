@@ -148,3 +148,25 @@ def Lottery(cookie:str):
         return (json.loads(rsp.text[21:-2])['result']['res'].get("res"))
     except:
         return "error"
+#独家游戏签到
+def sign_djyx(cookie:str):
+    url = "http://huodong.4399.com/2016/djyx/ajax.php"
+    try:
+        sign_headers={
+        'Accept':'application/json, text/javascript, */*; q=0.01',
+        'Accept-Encoding':'gzip, deflate',
+        'Accept-Language':'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+        'Connection':'keep-alive',
+        'Content-Length':'32',
+        'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
+        'Cookie':cookie,
+        'Host':'huodong.4399.com',
+        'Origin':'http://huodong.4399.com',
+        'Referer':'http://huodong.4399.com/2016/djyx/',
+        'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
+        'X-Requested-With':'XMLHttpRequest'
+        }
+        rsp = requests.post(url,headers=sign_headers,timeout=2,data='act=sign&rand=0.1416582288761603')
+        return (rsp.json())
+    except:
+        return "error"
