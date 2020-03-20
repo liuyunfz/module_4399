@@ -170,3 +170,26 @@ def sign_djyx(cookie:str):
         return (rsp.json())
     except:
         return "error"
+#群组签到
+def sign_grade(cookie:str,tagid:int):
+    url = "http://my.4399.com/forums/grade-signIn"
+    try:
+        sign_headers={
+        'Accept':'application/json, text/javascript, */*; q=0.01',
+        'Accept-Encoding':'gzip, deflate',
+        'Accept-Language':'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+        'Connection':'keep-alive',
+        'Content-Length':'27',
+        'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
+        'Cookie':cookie,
+        'Host':'my.4399.com',
+        'Origin':'http://my.4399.com',
+        'Referer':'http://my.4399.com/forums/mtag-84526',
+        'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36',
+        'X-Requested-With':'XMLHttpRequest'
+        }
+        rsp = requests.post(url,headers=sign_headers,timeout=2,data='sign=1&tagid={0}&_AJAX_=1'.format(str(tagid)))
+        return (rsp.json())
+    except:
+        return "error"
+
