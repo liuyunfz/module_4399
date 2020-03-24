@@ -192,4 +192,29 @@ def sign_grade(cookie:str,tagid:int):
         return (rsp.json())
     except:
         return "error"
+#获取群组信息
+def information_group(cookie:str,uid:int):
+    try:
+        headers={
+            'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'Accept-Encoding':'gzip, deflate',
+            'Accept-Language':'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+            'Connection':'keep-alive',
+            'Cookie':cookie,
+            'Host':'my.4399.com',
+            'Referer':'http://my.4399.com/u/352612664/index',
+            'Upgrade-Insecure-Requests':'1',
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36'
+        }
+        rsp = requests.get(url="http://my.4399.com/u/{0}/mtag".format(uid),headers=headers)
+        rsp.encoding="utf-8"        
+        selector=etree.HTML(rsp.text)
+        data_list=selector.xpath('//*[@id="j-mtaglist"]/li')
+        information_group_list=[]
+        for i in data_list: 
+            dict_group={'title':i.xpath('./div[1]/a/text()')[0],'img':i.xpath('./div[2]/a/img/@src')[0],'level':i.xpath('./div[2]/div/div[1]/i/@class')[0][2:],'experience':i.xpath('./div[2]/div/div[1]/text()')[2].strip()}
+            information_group_list.append(dict_group)      
+        return information_group_list
+    except:
+        return "error"
 
