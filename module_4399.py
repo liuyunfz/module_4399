@@ -217,4 +217,25 @@ def information_group(cookie:str,uid:int):
         return information_group_list
     except:
         return "error"
+#帖子点赞
+def operate_flower(cookie:str,tid:int,captcha="",captchaid=""):
+    url="http://my.4399.com/forums/operate-click"
+    headers={
+    'Accept': 'application/json, text/javascript, */*; q=0.01',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+    'Connection': 'keep-alive',
+    'Content-Length': '60',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Cookie': cookie,
+    'Host': 'my.4399.com',
+    'Origin': 'http://my.4399.com',
+    'Referer': 'http://my.4399.com/forums/thread-53382781',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+    'X-Requested-With': 'XMLHttpRequest'
+    }
+    data = "tid={0}&clickid=14&captchaid={2}&captcha={1}&guide=0&_AJAX_=1".format(tid,captcha,captchaid)
+    rsp = requests.post(url=url,data=data,headers=headers)
+    rsp_json = json.loads(rsp.text)
+    return rsp_json
 
