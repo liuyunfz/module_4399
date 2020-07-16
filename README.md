@@ -20,7 +20,7 @@
 - [4399登录详解](https://www.coolapk.com/feed/13068295?shareKey=YWFjNWViNjYxYTRhNWQ5NTYxNmE~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [利用cookie爬取4399单个群组的用户数据](https://www.coolapk.com/feed/13102437?shareKey=MzA5Y2ZmNmI3YTc5NWQ5NTY2MmY~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [爬取4399全站用户](https://www.coolapk.com/feed/13180495?shareKey=ZGFmODg4ZWIwM2E5NWQ5NTY2NzQ~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
-- [4399HASH实战破解](http://blog.6yfz.cn/%E5%AE%9E%E6%88%984399%E7%A0%B4%E8%A7%A3HASH%E9%AA%8C%E8%AF%81.html)   <br>
+- [4399HASH实战破解](https://blog.6yfz.cn/tutorial/python-spider-4399-hash.html)   <br>
 ## **功能解析**
 ### 4399登录
 	方法名:sign_in  
