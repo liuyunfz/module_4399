@@ -192,7 +192,7 @@ def sign_grade(cookie:str,tagid:int):
         return (rsp.json())
     except:
         return "error"
-#获取群组信息
+#获取已关注的群组信息
 def information_group(cookie:str,uid:int):
     try:
         headers={
@@ -238,4 +238,24 @@ def operate_flower(cookie:str,tid:int,captcha="",captchaid=""):
     rsp = requests.post(url=url,data=data,headers=headers)
     rsp_json = json.loads(rsp.text)
     return rsp_json
+#获取积分_玩游戏（每日上限五次）
+def get_integral_playgame(game_id:str,cookie:str):
+        #game_list=['211324','211421','211338','211257','211305']
+    try:
+        url="http://my.4399.com/credit/earnScore-gameCredit?game_id={0}".format(game_id)
+        headers={
+            'Accept':'application/json, text/javascript, */*; q=0.01',
+            'Accept-Encoding':'gzip, deflate',
+            'Accept-Language':'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+            'Connection':'keep-alive',
+            'Cookie':cookie,
+            'Host':'my.4399.com',
+            'Referer':'http://my.4399.com/jifen/earnScore',
+            'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36',
+            'X-Requested-With':'XMLHttpRequest'
+        }
+        rsp=requests.get(url=url,headers=headers)
+        return rsp.json
+    except:
+        return 'error'
 
