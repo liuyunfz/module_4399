@@ -7,6 +7,7 @@
 - [4399群组信息获取](#群组信息获取)
 - [4399群组首页签到](#4399群组首页签到)
 - [4399群组帖子表态](#群组帖子表态)
+- [4399获取积分_玩游戏](#获取积分_玩游戏)
 - [4399群组等级信息获取](#获取群组等级信息)
 - [4399群组粉丝及关注信息获取](#获取粉丝与关注信息)<br>
 ## 暂未添加功能
@@ -21,6 +22,10 @@
 - [利用cookie爬取4399单个群组的用户数据](https://www.coolapk.com/feed/13102437?shareKey=MzA5Y2ZmNmI3YTc5NWQ5NTY2MmY~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [爬取4399全站用户](https://www.coolapk.com/feed/13180495?shareKey=ZGFmODg4ZWIwM2E5NWQ5NTY2NzQ~&shareUid=1256119&shareFrom=com.coolapk.market_9.5)
 - [4399HASH实战破解](https://blog.6yfz.cn/tutorial/python-spider-4399-hash.html)   <br>
+## 使用方法
+1. 将仓库下载到本地，或只下载module_4399.py文件
+2. 安装第三方python库，或在仓库目录下执行`pip install -r requirements.txt`
+3. 导入到你所要使用的py文件中`from module_4399.py import *`
 ## **功能解析**
 ### 4399登录
 	方法名:sign_in  
@@ -152,11 +157,23 @@
 |code  |表态状态。  100-成功  98-需要验证码  159-已参与表态|
 |result  | 成功时返回空串，已表态时返回None，需要验证码时将返回以下两个参数  |
 |msg  | 表态状态具体信息返回 |
-|:-  |:-   |
 |id| 验证码id，仅在需要验证码时返回，处于result目录下     |   
 |img| 验证码地址，仅在需要验证码时返回，处于result目录下     |  
 
 **[⬆ Back to Index](#已有功能)**  
+  
+### 获取积分_玩游戏
+	方法名：get_integral_playgame
+|需要参数|参数类型|说明                              |
+|:-  |:-|:-   |
+|game_id   |str    |游玩的游戏的id，可选：['211324','211421','211338','211257','211305'] |
+|cookie   |str    |账号的cookie，可由sign_in函数返回   |
+
+	返回数据（type:json）  
+>	返回官方json，如果错误返回error。
+
+**[⬆ Back to Index](#已有功能)**  
+  
 ## **展望**
 ⭐⭐⭐
 未来会以md教程的方式实现4399群组的全站爬取
